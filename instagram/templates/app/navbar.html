@@ -1,32 +1,34 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <h2><span style="color: #ffafcc;">Instagram</span><span style="color: #06d6a0;">clone</span></h2>
-      
+      <div class="logo">
+        <a href="{% url 'home' %}"><img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png"
+            alt="logo" width="103"></a>
+      </div> 
     <a class="navbar-brand" href="/"></a>
             <a class="navbar-brand" href=""> </a>
             <ul class="nav navbar-nav">
             </ul>
-      <div class="navbar-collapse collapse " id="navbarNavAltMarkup">
-       
-        <div class="nav-link">
-          <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a>
-        </div>
+      <div class="navbar-collapse collapse " id="navbarNavAltMarkup"> 
         <div>
-          <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+          <a class="nav-link" href="{% url 'profile' %}">Profile</a>
         </div>  
-         <!-- Adding a search form  -->
-         <div class="col-sm-4 col-md-4 navbar-right">
-          <form class="form-inline my-2 my-sm-0" role="search" action="{% url 'search' %}">
-            <div class="input-group">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="image">
-            <div class="input-group-btn">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </div>
-          </div>
-          </form>
+        <!-- Adding a search form  -->
+        <div class="col-sm-4 col-md-4 navbar-right">
+        <form class="form-inline my-2 my-sm-0" role="search" action="{% url 'search' %}">
+          <div class="input-group">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="image">
+          <div class="input-group-btn">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </div>
         </div>
-          <!-- search form end -->
+        </form>
+       </div>
+       <div>
+        <a href="{% url 'admin:index' %}"><i class="fas fa-user-lock fa-2x ms-5" style="color: #0275d8;"></i></a>
+      </div>
+      </div>
+        <!-- search form end -->
         </div>
       </div>
                
