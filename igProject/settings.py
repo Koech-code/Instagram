@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'instagram',
     'bootstrap5',
+    'django_registration',
 ]
 
 MIDDLEWARE = [
