@@ -1,9 +1,11 @@
 
+from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.deletion import CASCADE
 
 # Create your models here.
 class Profile(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     photo=models.ImageField(upload_to='images')
     bio=models.TextField(max_length=1200)
     
@@ -11,7 +13,7 @@ class Profile(models.Model):
 class Following(models.Model):
     username = models.CharField(blank=True,max_length = 255)
     followed = models.CharField(blank=True,max_length = 255)
-
+    
     def __str__(self):
         return f'{self.username}'
         
