@@ -1,0 +1,72 @@
+{%extends 'base.html'%}
+
+{%block styles%}
+<style>
+</style>
+{%endblock%}
+
+{%block content%}
+<div class="row py-1 px-1">
+    <div class="col-md-8 mx-auto">
+        <div class="bg-white rounded overflow-hidden">
+
+            <div class="container">
+                <div class="row pb-4">
+                    <div class="col-4 text-center">
+                        <p style="color: cadetblue; font-size: 25px;">{{request.user.username}}</p>
+                            
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC8kiSH5ZSAcVoj3tAQQDoP_ux0sSricMyUg&usqp=CAU"
+                             alt="avatar" width="150" class="rounded-circle mb-2">
+                    </div>
+                    <div class="col-8">
+                        <div class="text-center d-flex justify-content-between pb-3">
+                            
+                            <button class="btn btn-sm btn-success border"><i class="fas fa-envelope-o"></i> message</button>
+                            <form method="post">
+                                {%csrf_token%}
+                                <input hidden name="that_user_id" value="{{profile.user.id}}">
+                                <button class="btn btn-sm btn-primary" type="submit"><i href="{% url 'follow' user.id%}" class="fas fa-plus"></i> follow</button>
+                            </form>
+                            
+                        </div>
+                        <div class="text-center d-flex justify-content-between pb-3">
+                            
+                            <span> {{followers.count}} Following</span>
+                            <span> {{followings.count}} Followers</span>
+                        </div>
+                        <div >
+                            {% for profile in profile %}
+                            <img src="{{profile.photo.url}}">image
+                            <p>Bio</p>
+                            {% endfor%}
+                            
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="py-4 px-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mb-2 pr-lg-1"><img
+                            src="https://cutt.ly/pWMk2vJ"
+                            alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 mb-2 pl-lg-1"><img
+                            src="https://cutt.ly/QWMkmdg"
+                            alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 pr-lg-1 mb-2"><img
+                            src="https://cutt.ly/ZWMla8X"
+                            alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 pl-lg-1"><img
+                            src="https://cutt.ly/XWMku43"
+                            alt="" class="img-fluid rounded shadow-sm"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
