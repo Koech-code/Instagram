@@ -8,8 +8,13 @@ class Profile(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     photo=models.ImageField(upload_to='images')
     bio=models.TextField(max_length=1200)
+
+    def save_profile(self):
+        self.save()
     
 
+    def delete_profile(self):
+        self.delete()
 class Following(models.Model):
     username = models.CharField(blank=True,max_length = 255)
     followed = models.CharField(blank=True,max_length = 255)
@@ -24,3 +29,10 @@ class Image(models.Model):
     profile=models.ForeignKey(Profile, on_delete=CASCADE)
     likes=models.IntegerField(default=0)
     comments=models.TextField(max_length=500)
+    
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()
+
