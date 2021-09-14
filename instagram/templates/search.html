@@ -3,21 +3,25 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        {% if images %}
-        <h3>Found {{ images | length }} of searched term <span style="color: white;">{{ message }}</span></h3>
+        {% if user %}
+        <h3>Found {{ user| length }} of searched term <span style="color: white;">{{ message }}</span></h3>
         {% else%}
         <h2>Found 0 images for the search_word {{ message }}</h2>
         {% endif%}
     </div>
     <div class="row">
-     {% for image in images %}
+     {% for profile in user %}
     <div class="col-md-3">
         <div class="card" style="width: 20rem; height: auto;">
-            <img src="{{image.image.url}}" class="img-responsive" data-bs-toggle="modal" data-bs-target="#expand{{image.id}}" alt="">
-            <div class="card-body">
-                <h5 class="card-title">{{image.img_name}}</h5>
-                <p class="card-text">Description: <span style="color: green;">{{image.description}}</span> </p>
-            </div>    
+            <img src="{{profile.photo.url}}" class="img-responsive" data-bs-toggle="modal" data-bs-target="#expand{{image.id}}" alt="">
+            <a href="{% url 'profile'  %}"><div class="card-body">
+                <h5 class="card-title">{{profile.name}}</h5>
+                <p class="card-text">Username: <span style="color: green;">{{profile.username}}</span> </p>
+            </div>
+            </a>  
+            <div>
+                <h5 class="card-title"><span style="color: chocolate;">{{profile.email}}</span></h5>
+            </div>
         </div>
     </div>
     <br>

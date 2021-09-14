@@ -21,14 +21,14 @@
         <div class="col-sm-4 col-md-4 navbar-right">
      
         <form class="mb-0 h1 ml-auto mr-auto" role="search" action="{% url 'search' %}" >
-          <input name="search_user" autocomplete="off" id="searching" class="form-control d-none d-md-block" placeholder="Search">
+          <input name="people" autocomplete="off" id="searching" class="form-control d-none d-md-block" placeholder="Search">
          <i class="spinner "></i>
         </form>
        </div>
        <div>
         <a href="{% url 'admin:index' %}"><i class="fas fa-user-lock fa-2x ms-5" style="color: #0275d8;"></i></a>
       </div>
-      <dl class="nav-item dropdown">
+      <dl class="nav-item dropdown px-4">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
          Accounts
         </a>

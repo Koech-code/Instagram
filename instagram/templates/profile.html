@@ -14,15 +14,23 @@
                 <div class="row pb-4">
                     <div class="col-4 text-center">
                         <p style="color: cadetblue; font-size: 25px;">{{request.user.username}}</p>
-                            
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC8kiSH5ZSAcVoj3tAQQDoP_ux0sSricMyUg&usqp=CAU"
+                         {% for profile in profiles %}   
+                        <img src="{{profile.photo.url}}"
                              alt="avatar" width="150" class="rounded-circle mb-2">
+                            <div class="row">
+                                <div class="col-8 px-4">
+                                <p style="color: chartreuse;">Bio</p>
+                                {{profile.bio}}
+                                
+                                </div>
+                            </div>
+                            {% endfor%} 
                     </div>
-                    <div class="col-8">
-                        <div class="text-center d-flex justify-content-between pb-3">
+                    <div class="col-8 py-4">
+                        <div class="text-center d-flex justify-content-between pt-4">
                             
-                            <button class="btn btn-sm btn-success border"><i class="fas fa-envelope-o"></i> message</button>
-                            <form method="post">
+                            <button class="btn btn-sm btn-success border"><i class="fas fa-envelope-o"></i>Post</button>
+                            <form action="follow/d+" method="post">
                                 {%csrf_token%}
                                 <input hidden name="that_user_id" value="{{profile.user.id}}">
                                 <button class="btn btn-sm btn-primary" type="submit"><i href="{% url 'follow' user.id%}" class="fas fa-plus"></i> follow</button>
@@ -35,13 +43,6 @@
                             <span> {{followings.count}} Followers</span>
                         </div>
                         <div >
-                            {% for profile in profile %}
-                            <img src="{{profile.photo.url}}">image
-                            <p>Bio</p>
-                            {% endfor%}
-                            
-                            
-                            
                         </div>
                     </div>
                 </div>
